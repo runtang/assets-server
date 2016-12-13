@@ -1,0 +1,29 @@
+{
+  "name": "assets-server",
+  "version": "0.0.1",
+  "description": "",
+  "homepage": "https://github.com/runtang/assets-server",
+  "author": {
+    "name": "runtang",
+    "email": "xuanruntang@126.com",
+    "url": ""
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "./index.js",
+  "keywords": [],
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "mocha": true
+    }
+  },
+  "repository": "runtang/assets-server",
+  "scripts": {},
+  "license": "Apache-2.0"
+}
