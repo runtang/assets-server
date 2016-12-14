@@ -1,8 +1,10 @@
+'use strict';
+
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const updateHandler = require('./lib/updateHandler');
 const app = express();
-const port = 4567;
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
@@ -16,6 +18,6 @@ app.post('/publish', (req, res) => {
 
 app.post('/push', updateHandler);
 
-app.listen(port, () => {
-  console.log('Assets Server start at ' + port);
+app.listen(process.env.SERVER_PORT, () => {
+  console.log('Assets Server start at ' + process.env.SERVER_PORT);
 });
