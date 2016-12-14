@@ -14,7 +14,9 @@
   "main": "./index.js",
   "keywords": [],
   "dependencies": {
-    "express": "^4.14.0"
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "fs-extra": "^1.0.0"
   },
   "devDependencies": {},
   "eslintConfig": {
