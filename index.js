@@ -23,20 +23,20 @@ app.get('/clone', (req, res) => {
   const cloneGithub = require('./lib/cloneGithub');
   cloneGithub({
     reposInfo: {
-      // ref: 'refs/heads/dev/0.0.1',
-      // branch: 'dev/0.0.1',
-      // version: '0.0.1',
-      // repos: {
-      //   name: 'InceptionPadNews-front-end',
-      //   ssh_url: 'git@github.com:tanlukang/InceptionPadNews-front-end.git'
-      // }
-      ref: 'refs/heads/master',
-      branch: 'master',
-      version: '',
+      ref: 'refs/heads/dev/0.0.1',
+      branch: 'dev/0.0.1',
+      version: '0.0.1',
       repos: {
-        name: 'assets-server',
-        ssh_url: 'git@github.com:runtang/assets-server.git'
+        name: 'InceptionPadNews-front-end',
+        ssh_url: 'git@github.com:tanlukang/InceptionPadNews-front-end.git'
       }
+      // ref: 'refs/heads/master',
+      // branch: 'master',
+      // version: '',
+      // repos: {
+      //   name: 'assets-server',
+      //   ssh_url: 'git@github.com:runtang/assets-server.git'
+      // }
     }
   }).then(data => {
     logger.debug('Finished:', new Date());
