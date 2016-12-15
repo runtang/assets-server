@@ -4,7 +4,7 @@ require('dotenv').config();
 require('./lib/initLogger');
 const express = require('express');
 const bodyParser = require('body-parser');
-const updateHandler = require('./lib/updateHandler');
+const pushHandler = require('./lib/pushHandler');
 const app = express();
 const logger = require('log4js').getLogger();
 
@@ -19,7 +19,25 @@ app.get('/ping', (req, res) => {
   res.send('200');
 });
 
-app.post('/push', updateHandler);
+app.get('/clone', (req, res) => {
+  const cloneGithub = require('./lib/cloneGithub');
+  cloneGithub({
+    reposInfo: {
+      ref: 'refs/heads/dev/0.0.1',
+      branch: 'dev/0.0.1',
+      version: '0.0.1',
+      repos: {
+        name: 'InceptionPadNews-front-end',
+        ssh_url: 'git@github.com:tanlukang/InceptionPadNews-front-end.git'
+      }
+    }
+  }).then(data => {
+    logger.debug('Finished:', new Date());
+    res.send('clone finished');
+  });
+});
+
+app.post('/push', pushHandler);
 
 app.listen(process.env.SERVER_PORT, () => {
   logger.debug('Assets Server start at ' + process.env.SERVER_PORT, new Date());
