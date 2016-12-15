@@ -4,3 +4,5 @@ npm-debug.log
 public/*
 !public/.gitkeep
 log/*.log
+tmp/*
+!tmp/.gitkeep

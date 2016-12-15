@@ -9,13 +9,14 @@ const app = express();
 const logger = require('log4js').getLogger();
 
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/log'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.get('/publish', (req, res) => {
-  res.send('publish');
+app.get('/ping', (req, res) => {
+  res.send('200');
 });
 
 app.post('/push', updateHandler);
