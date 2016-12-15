@@ -28,7 +28,8 @@ app.get('/clone', (req, res) => {
       version: '0.0.1',
       repos: {
         name: 'InceptionPadNews-front-end',
-        ssh_url: 'git@github.com:tanlukang/InceptionPadNews-front-end.git'
+        ssh_url: 'git@github.com:tanlukang/InceptionPadNews-front-end.git',
+        clone_url: 'https://github.com/tanlukang/InceptionPadNews-front-end.git'
       }
       // ref: 'refs/heads/master',
       // branch: 'master',
