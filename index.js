@@ -19,7 +19,7 @@ app.get('/ping', (req, res) => {
   res.send('200');
 });
 
-app.get('/clone', (req, res) => {
+app.get('/cloneBranch', (req, res) => {
   const cloneGithub = require('./lib/cloneGithub');
   cloneGithub({
     reposInfo: {
@@ -40,13 +40,33 @@ app.get('/clone', (req, res) => {
       // }
     }
   }).then(data => {
-    logger.debug('Finished:', new Date());
-    res.send('clone finished');
+    logger.debug('Finished:');
+    res.send('clone branch finished');
   });
 });
+
+app.get('/cloneTag', (req, res) => {
+  const cloneGithub = require('./lib/cloneGithub');
+  cloneGithub({
+    reposInfo: {
+      ref: 'refs/heads/publish/0.0.1',
+      branch: 'publish/0.0.1',
+      version: '0.0.1',
+      repos: {
+        name: 'InceptionPadNews-front-end',
+        ssh_url: 'git@github.com:tanlukang/InceptionPadNews-front-end.git',
+        clone_url: 'https://github.com/tanlukang/InceptionPadNews-front-end.git'
+      }
+    }
+  }).then(data => {
+    logger.debug('Finished:');
+    res.send('clone tag finished');
+  });
+});
+
 
 app.post('/push', pushHandler);
 
 app.listen(process.env.SERVER_PORT, () => {
-  logger.debug('Assets Server start at ' + process.env.SERVER_PORT, new Date());
+  logger.debug('Assets Server start at ' + process.env.SERVER_PORT);
 });
