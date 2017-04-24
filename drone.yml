@@ -1,0 +1,6 @@
+pipeline:
+  backend:
+    image: node:6
+    commands:
+      - npm install
+      - npm test
